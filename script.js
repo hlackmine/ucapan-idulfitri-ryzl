@@ -119,33 +119,34 @@ function updateCard() {
     if (isFinished) return;
     const data = messages[currentIndex];
     
-    mainSticker.src = data.sticker;
-    document.getElementById('stickerContainer').classList.add('visible');
+    // 1. Ambil container dan pastikan muncul
     const stickerCont = document.getElementById('stickerContainer');
     stickerCont.style.display = "block";
+    
+    // 2. Ganti source stiker (Cukup satu kali panggil saja)
+    // Gunakan timestamp agar browser dipaksa reload GIF-nya
     mainSticker.src = data.sticker + "?t=" + new Date().getTime();
+    
+    // 3. Jalankan teks typewriter
     typeWriter(data.text);
 
+    // 4. Reset & Jalankan Loading Bar
     loadingLine.style.animation = 'none';
-    loadingLine.offsetHeight; 
+    void loadingLine.offsetWidth; // Trik agar animasi bisa restart
     loadingLine.style.animation = `load ${duration}ms linear forwards`;
-
-    const waMsg = `Pesan dari ${userName}: ${data.text.replace(/\n/g, ' ')}`;
-    document.getElementById('waLink').href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
-}
-
-function startLoop() {
-    setInterval(() => {
+const waMsg = `Pesan dari ${userName}: ${data.text.replace(/\n/g, ' ')}`;
+document.getElementById('waLink').href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
+    // 5. ATUR PERPINDAHAN KARTU DI SINI (Hapus startLoop)
+    setTimeout(() => {
         if (isFinished) return;
         currentIndex++;
-        if (currentIndex >= messages.length) {
-            showFinish();
-        } else {
+        if (currentIndex < messages.length) {
             updateCard();
+        } else {
+            showFinish();
         }
     }, duration);
 }
-
 function showFinish() {
     isFinished = true;
     document.getElementById('senderName').style.display = "none";
