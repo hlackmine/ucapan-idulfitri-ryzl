@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Idul Fitri 1447 H</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <img src="giphy.gif" class="modal-sticker" alt="Stiker">
+            <h2 class="modal-title">Assalamu'alaikum</h2>
+            <p class="modal-instruction">Masukkan nama kamu untuk memulai 😀</p>
+            <input type="text" class="name-input" id="nameInput" placeholder="Nama Kamu..." autocomplete="off">
+            <button class="start-btn" id="startBtn" disabled><i class="fas fa-play"></i> Mulai</button>
+            <p class="music-hint">Jangan lupa klik ikon Music di pojok kanan atas yaa</p>
+        </div>
+    </div>
+
+    <div class="stars" id="stars"></div>
+
+    <button class="music-control" id="musicBtn" onclick="toggleMusic()">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <div class="container" id="mainContainer">
+        
+        <h3 id="senderName" class="sender-name"></h3>
+
+        <div id="stickerContainer" class="sticker-container" style="display: none;">
+            <img id="mainSticker" src="" class="sticker-img">
+        </div>
+
+        <div id="surpriseCard" class="card" style="display: none;">
+            <div class="card-content">
+                <p class="card-text">Halo <span id="surpriseName"></span>, Sehat selalu ya! ✨<br>Pilihlah 1 dari 3 kotak ini:</p>
+                <div class="ketupat-choice-container">
+                    <div class="ketupat-box" onclick="chooseKetupat('Zonk! Kamu harus mandi dulu ! 💩', 'Dudu(1).gif')">
+                        <i class="fas fa-box-open"></i><span>1</span>
+                    </div>
+                    <div class="ketupat-box" onclick="chooseKetupat('Semoga harimu ceria dan bahagia! 💸', 'Dudu(2).gif')">
+                        <i class="fas fa-box-open"></i><span>2</span>
+                    </div>
+                    <div class="ketupat-box" onclick="chooseKetupat('Eits, dilarang marah hari ini! 😇', 'Dudu(3).gif')">
+                        <i class="fas fa-box-open"></i><span>3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="messageBox" class="card" style="display: none;" onclick="goToMainUcapan()">
+            <div class="card-content">
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <img id="surpriseSticker" src="" style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 10px;">
+                </div>
+                <p id="surpriseResult" class="card-text"></p>
+                <p style="font-size: 0.7rem; color: #4ade80; margin-top: 15px;">(Ketuk layar untuk lanjut)</p>
+            </div>
+        </div>
+
+        <div id="mainUcapanCard" class="card" style="display: none;">
+            <div id="cardInnerContent">
+                 <p id="typingText" class="card-text"></p>
+                 <span class="cursor"></span>
+            </div>
+            
+            <div id="finishMessage" class="finish-message">
+                <h2 class="finish-title">Selamat Lebaran,<br><span id="finishName"></span>!</h2>
+                <p class="finish-footer">Semoga kita dapat menjalani hidup dengan bahagia dan damai.<br>
+                Ammiin...  Daa...</p>
+            </div>
+
+            <div id="loadingBar" class="loading-container">
+                <div id="loadingLine" class="loading-line"></div>
+            </div>
+        </div>
+
+        <a href="#" id="waLink" class="ketupat-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <p id="waLabel" class="wa-label">Kirim Ucapan Balik</p>
+
+    </div>
+
+    <audio id="bgMusic">
+        <source src="nastelbom-ramadan-468513.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
