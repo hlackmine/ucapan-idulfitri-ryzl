@@ -18,6 +18,7 @@ const musicBtn = document.getElementById('musicBtn');
 const typingText = document.getElementById('typingText');
 const loadingLine = document.getElementById('loadingLine');
 const mainSticker = document.getElementById('mainSticker');
+const bgMusic = document.getElementById('bgMusic');
 
 // --- LOGIKA AWAL & MODAL ---
 
@@ -99,6 +100,19 @@ function typeWriter(text) {
         }
     }
     type();
+}
+function startApp() {
+    const input = document.getElementById('nameInput');
+    userName = input.value.trim();
+    if (userName) {
+        bgMusic.play();
+
+        document.getElementById('modalOverlay').style.display = 'none';
+        document.getElementById('senderName').textContent = `Hai: ${userName}`;
+        document.getElementById('senderName').style.display = 'block';
+        updateCard();
+
+    }
 }
 
 function updateCard() {
