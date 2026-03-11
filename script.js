@@ -199,5 +199,4 @@ window.onload = () => {
         s.style.animationDelay = Math.random() * 3 + 's';
         starsWrap.appendChild(s);
     }
-
 };
