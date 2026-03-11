@@ -5,10 +5,10 @@ const duration = 7500;
 const typingSpeed = 70;
 
 const messages = [
-    { text: "Taqabbal Allahu Minna wa Minkum,\nShiyamana wa Shiyamakum.", icon: "🌙", sticker: "Dudu.gif" },
-    { text: "Mohon Maaf Lahir dan Batin.\nSemoga berkah  dan rahmat selalu menyertai kita.", icon: "✨", sticker: "Dudu(1).gif" },
-    { text: "Di hari yang fitri ini,\nSemoga Allah mengampuni kita semua.", icon: "🕌", sticker: "Dudu(2).gif" },
-    { text: "Minal 'Aidin wal Faizin,\nSelamat Hari Raya Idul Fitri 1447 H.", icon: "☪️", sticker: "Dudu(3).gif" }
+    { text: "Taqabbal Allahu Minna wa Minkum,\nShiyamana wa Shiyamakum.", sticker: "Dudu.gif" },
+    { text: "Mohon Maaf Lahir dan Batin.\nSemoga berkah  dan rahmat selalu menyertai kita.", sticker: "Dudu(1).gif" },
+    { text: "Di hari yang fitri ini,\nSemoga Allah mengampuni kita semua.", sticker: "Dudu(2).gif" },
+    { text: "Minal 'Aidin wal Faizin,\nSelamat Hari Raya Idul Fitri 1447 H.", sticker: "Dudu(3).gif" }
 ];
 
 const nameInput = document.getElementById('nameInput');
@@ -107,7 +107,9 @@ function updateCard() {
     
     mainSticker.src = data.sticker;
     document.getElementById('stickerContainer').classList.add('visible');
-    
+    const stickerCont = document.getElementById('stickerContainer');
+    stickerCont.style.display = "block";
+    mainSticker.src = data.sticker + "?t=" + new Date().getTime();
     typeWriter(data.text);
 
     loadingLine.style.animation = 'none';
@@ -138,6 +140,7 @@ function showFinish() {
     document.getElementById('loadingBar').style.display = "none"; 
     
     // 2. PASTIKAN stiker utama TETAP MUNCUL
+    document.getElementById('stickerContainer').style.display = "block";
     // Pastikan baris ini TIDAK ADA atau di-set ke "block"
     document.getElementById('stickerContainer').style.display = "block";
     
