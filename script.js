@@ -6,10 +6,9 @@ const typingSpeed = 70;
 
 const messages = [
     { text: "Taqabbal Allahu Minna wa Minkum,\nShiyamana wa Shiyamakum.", sticker: "dudu.gif" },
-    { text: "Mohon Maaf Lahir dan Batin.\nSemoga berkah  dan rahmat selalu menyertai kita.", sticker: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGxtZzhmeXdzZGx6OTR6eWc1d2JocHhjaDQwbW54cWc3eXRxZTJubCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JwEVhaGCR6jTIqfSeI/giphy.gif
-" },
-    { text: "Di hari yang fitri ini,\nSemoga Allah mengampuni kita semua.", sticker: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGxtZzhmeXdzZGx6OTR6eWc1d2JocHhjaDQwbW54cWc3eXRxZTJubCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tAnKxPsuWqmuBuHD0Y/giphy.gif
-" },
+    // Pastikan LINK DI BAWAH INI SATU BARIS (Jangan di-enter)
+    { text: "Mohon Maaf Lahir dan Batin.\nSemoga berkah dan rahmat selalu menyertai kita.", sticker: "https://media.giphy.com/media/JwEVhaGCR6jTIqfSeI/giphy.gif" },
+    { text: "Di hari yang fitri ini,\nSemoga Allah mengampuni kita semua.", sticker: "https://media.giphy.com/media/tAnKxPsuWqmuBuHD0Y/giphy.gif" },
     { text: "Minal 'Aidin wal Faizin,\nSelamat Hari Raya Idul Fitri 1447 H.", sticker: "dudu3.gif" }
 ];
 
@@ -57,14 +56,17 @@ function chooseKetupat(pesan, sticker) {
     // 3. Ambil elemen gambar yang ada DI DALAM kartu hasil (surpriseSticker)
     const surpriseImg = document.getElementById('surpriseSticker');
     
-    // 4. Masukkan sumber gambar stiker dengan tambahan timestamp agar HP tidak error
-    // Gunakan huruf kecil sesuai file di GitHub kamu
-    surpriseImg.src = sticker.toLowerCase() + "?t=" + new Date().getTime();
+    // 4. Logika Cerdas: Jika sticker adalah link (http), pakai apa adanya. 
+    // Jika hanya nama file (seperti dudu.gif), ubah ke huruf kecil.
+    let finalSticker = sticker.startsWith('http') ? sticker : sticker.toLowerCase();
     
-    // 5. Masukkan teks pesan zonk/hadiahnya
+    // 5. Masukkan sumber gambar dengan timestamp agar HP tidak pakai cache lama
+    surpriseImg.src = finalSticker + (finalSticker.includes('?') ? '&' : '?') + "t=" + new Date().getTime();
+    
+    // 6. Masukkan teks pesan zonk/hadiahnya
     document.getElementById('surpriseResult').textContent = pesan;
     
-    // 6. Tampilkan box hasil kejutan
+    // 7. Tampilkan box hasil kejutan
     document.getElementById('messageBox').style.display = "flex";
 }
 // Fungsi pindah ke ucapan utama
@@ -194,5 +196,6 @@ window.onload = () => {
     }
 
 };
+
 
 
