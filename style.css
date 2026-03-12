@@ -1,18 +1,21 @@
 /* --- RESET & BASE --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #020c1b 0%, #0a192f 50%, #000000 100%);
+    /* PENGATURAN FOTO BACKGROUND */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; 
+    align-items: center; /* Diubah ke center agar pas di tengah layar HP */
     overflow: hidden;
     color: white;
-    padding-top: 70px; 
 }
-
 /* --- MODAL --- */
 .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -22,17 +25,18 @@ body {
 }
 .modal-overlay.hidden { opacity: 0; pointer-events: none; }
 .modal-content {
-    background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
     border: 1px solid rgba(255,255,255,0.2); border-radius: 25px;
     padding: 40px 30px; width: 90%; max-width: 350px; text-align: center;
 }
-.modal-sticker { width: 130px; height: 130px; margin-bottom: 20px; border-radius: 60px; object-fit: contain; }
+.modal-sticker { width: 130px; height: 130px; margin-bottom: 20px; border-radius: 50%; object-fit: contain; background: white; padding: 10px; }
 .modal-title { font-family: 'Amiri', serif; font-size: 2rem; color: #ffd700; margin-bottom: 10px; }
 .modal-instruction { font-size: 0.9rem; margin-bottom: 20px; opacity: 0.8; }
 .music-hint { font-size: 0.7rem; margin-top: 10px; color: #fb2a2a; }
 
 .name-input {
-    width: 100%; padding: 15px; border-radius: 15px; border: 2px solid greenyellow;
+    width: 100%; padding: 15px; border-radius: 15px; border: 2px solid #4ade80;
     background: rgba(255,255,255,0.1); color: white; text-align: center; 
     margin-bottom: 20px; outline: none;
 }
@@ -44,10 +48,6 @@ body {
 }
 .start-btn:disabled { background: #555; cursor: not-allowed; }
 
-/* --- ANIMASI BINTANG --- */
-.stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
-.star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; opacity: 0; animation: twinkle 3s infinite; }
-
 /* --- CARD AREA --- */
 .container {
     position: relative; z-index: 10; width: 90%; max-width: 400px;
@@ -58,28 +58,23 @@ body {
 .sticker-container {
     width: 120px; 
     height: 120px; 
-    background: rgba(255, 255, 255, 0.1);
-    
-    /* PENTING: Untuk memberi efek bulat pada container */
+    background: white; /* Putih agar GIF terlihat jelas */
     border-radius: 50% !important; 
-    
     padding: 10px; 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: 20px; /* Jarak dari card */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
     position: relative;
     z-index: 20;
-    display: block;
-
-    /* PENTING: Agar GIF yang kotak terpotong mengikuti container yang bulat */
     overflow: hidden !important; 
 }
+    /* PENTING: Agar GIF yang kotak terpotong mengikuti container yang bulat */
 .sticker-container.visible { opacity: 1; }
-.sticker-img { width: 100%; height: 100%; border-radius: 60px; object-fit: contain; }
+.sticker-img { width: 100%; height: 100%; object-fit: contain; }
 
 /* --- KARTU UTAMA --- */
 .card {
     position: relative;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -92,33 +87,25 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
-    transform: skewX(-10deg); 
+    transform: skewX(-10deg); /* Style khas kamu */
 }
 
 /* --- LOADING BAR (KAPSUL RAPI) --- */
 /* --- LOADING BAR (FULL WIDTH MENGIKUTI CARD) --- */
 .loading-container {
     position: absolute;
-    bottom: 0;               /* Tempelkan ke paling bawah kartu */
+    bottom: 0;
     left: 0;
-    width: 100%;             /* Lebar penuh mengikuti kartu */
-    height: 6px;             /* Ketebalan garis */
+    width: 100%;
+    height: 6px;
     background: rgba(255, 255, 255, 0.1);
-    
-    /* PENTING: overflow hidden agar garis hijau terpotong 
-       mengikuti border-radius milik .card */
     overflow: hidden; 
-    display: block;
 }
-
 .loading-line {
     height: 100%;
-    background: #4ade80;     /* Warna hijau neon */
+    background: #4ade80;
     width: 0%;
-    /* Tidak perlu border-radius di sini karena sudah dipotong oleh container */
 }
-
 .card-content { transform: none !important; width: 100%; }
 .sender-name {
     font-family: 'Poppins', sans-serif;
@@ -143,35 +130,60 @@ body {
 
 /* --- CONTROLS --- */
 .music-control {
-    position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1);
-    border: none; color: white; width: 40px; height: 40px; border-radius: 50%;
+    position: fixed; top: 20px; right: 20px; background: rgba(255,255,255,0.2);
+    border: 1px solid white; color: white; width: 40px; height: 40px; border-radius: 50%;
     cursor: pointer; z-index: 2000; display: flex; justify-content: center; align-items: center;
 }
+/* --- BUTTON WHATSAPP (FINISH) --- */
 .ketupat-btn {
     width: 60px; 
     height: 60px; 
     background: #25D366; 
+    /* Transform awal: kecil dan miring 45 derajat agar berbentuk belah ketupat */
     transform: scale(0) rotate(45deg);
-    border-radius: 8px; 
+    border-radius: 12px; 
     display: flex; 
     justify-content: center; 
     align-items: center;
-    transition: 0.5s; 
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     opacity: 0; 
-    margin-top: 40px;
+    margin: 40px auto 0;
     pointer-events: none; 
     text-decoration: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
 }
-.ketupat-btn.visible { opacity: 1; transform: scale(1) rotate(45deg); pointer-events: auto; }
-.ketupat-btn i { transform: rotate(-45deg); color: white; font-size: 1.5rem; }
-.wa-label { font-size: 0.8rem; opacity: 0; color: #aaa; transition: 0.5s; margin-top: 10px; }
 
-/* CONTAINER PILIHAN KETUPAT */
+.ketupat-btn.visible { 
+    opacity: 1; 
+    transform: scale(1) rotate(45deg); 
+    pointer-events: auto; 
+}
+
+/* Icon di dalam tombol WA (diputar balik agar ikonnya tegak) */
+.ketupat-btn i { 
+    transform: rotate(-45deg); 
+    color: white; 
+    font-size: 1.8rem; 
+}
+
+.wa-label { 
+    font-size: 0.85rem; 
+    opacity: 0; 
+    color: #4ade80; 
+    font-weight: 500;
+    transition: 0.5s; 
+    margin-top: 15px; 
+    text-align: center;
+}
+
+/* --- CONTAINER PILIHAN KETUPAT (SURPRISE CARD) --- */
 .ketupat-choice-container {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-top: 20px;
+    /* Netralkan efek skew dari card agar container ketupat tetap lurus */
+    transform: skewX(10deg); 
 }
 
 .ketupat-box {
@@ -180,30 +192,59 @@ body {
     border-radius: 15px;
     padding: 15px;
     cursor: pointer;
-    transition: 0.3s;
-    width: 80px;
+    transition: all 0.3s ease;
+    width: 85px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    backdrop-filter: blur(5px);
 }
 
 .ketupat-box:hover {
     background: rgba(74, 222, 128, 0.2);
-    transform: scale(1.1) rotate(5deg);
+    transform: translateY(-10px) scale(1.05);
+    border-style: solid;
 }
 
 .ketupat-box i {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #ffd700;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
 }
 
-/* Memastikan Card kejutan & Messagebox juga berbentuk jajar genjang */
-#surpriseCard, #messageBox {
-    transform: skewX(-10deg);
+.ketupat-box span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* --- ADJUSTMENT UNTUK MODAL & MESSAGE BOX --- */
+#surpriseCard, #messageBox, #mainUcapanCard {
+    transform: skewX(-10deg); /* Efek jajar genjang khas kamu */
+}
+
+/* Pastikan konten di dalam surprise card tidak ikut miring */
+#surpriseCard .modal-content, 
+#messageBox .card-content {
+    transform: skewX(10deg);
+}
+
+#surpriseResult {
+    font-weight: 600;
+    color: #ffd700;
+    margin-top: 10px;
 }
 
 /* --- KEYFRAMES --- */
-@keyframes load { from { width: 0%; } to { width: 100%; } }
-@keyframes twinkle { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+@keyframes load { 
+    from { width: 0%; } 
+    to { width: 100%; } 
+}
+
+@keyframes blink { 
+    50% { opacity: 0; } 
+}
+
+
 @keyframes blink { 50% { opacity: 0; } }
