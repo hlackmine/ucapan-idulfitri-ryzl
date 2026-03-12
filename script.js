@@ -46,33 +46,25 @@ function showSurpriseCard() {
 
 // Fungsi saat ketupat diklik
 function chooseKetupat(pesan, sticker) {
+    // 1. Sembunyikan kartu pilihan (box 1, 2, 3)
     document.getElementById('surpriseCard').style.display = "none";
     
-    const messageBox = document.getElementById('messageBox');
-    
-    // Gunakan sticker container utama agar tetap bulat di message box
-    const stickerCont = document.getElementById('stickerContainer');
-    stickerCont.style.display = "block";
-    document.getElementById('mainSticker').src = sticker;
-    
-    document.getElementById('surpriseResult').textContent = pesan;
-    messageBox.style.display = "flex";
-    //bsru
-     document.getElementById('surpriseCard').style.display = "none";
-    
-    // 2. Pastikan stiker yang di ATAS kartu tetap SEMBUNYI dulu
+    // 2. Pastikan stiker container UTAMA (yang di atas) tetap sembunyi dulu
     document.getElementById('stickerContainer').style.display = "none";
     
-    // 3. Isi gambar stiker yang ada DI DALAM kartu (surpriseSticker)
-    document.getElementById('surpriseSticker').src = sticker;
+    // 3. Ambil elemen gambar yang ada DI DALAM kartu hasil (surpriseSticker)
+    const surpriseImg = document.getElementById('surpriseSticker');
     
-    // 4. Isi teks pesan iseng
+    // 4. Masukkan sumber gambar stiker dengan tambahan timestamp agar HP tidak error
+    // Gunakan huruf kecil sesuai file di GitHub kamu
+    surpriseImg.src = sticker.toLowerCase() + "?t=" + new Date().getTime();
+    
+    // 5. Masukkan teks pesan zonk/hadiahnya
     document.getElementById('surpriseResult').textContent = pesan;
     
-    // 5. Tampilkan message box
+    // 6. Tampilkan box hasil kejutan
     document.getElementById('messageBox').style.display = "flex";
 }
-
 // Fungsi pindah ke ucapan utama
 function goToMainUcapan() {
     document.getElementById('messageBox').style.display = "none";
@@ -86,7 +78,6 @@ function goToMainUcapan() {
     document.getElementById('stickerContainer').style.display = "block";
 
     updateCard();
-    startLoop();
 }
 
 function typeWriter(text) {
@@ -201,3 +192,4 @@ window.onload = () => {
     }
 
 };
+
