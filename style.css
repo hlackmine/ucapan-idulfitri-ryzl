@@ -3,7 +3,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     /* PENGATURAN FOTO BACKGROUND */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('background.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('backgroundcomprezz.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -248,3 +248,4 @@ body {
 
 
 @keyframes blink { 50% { opacity: 0; } }
+
