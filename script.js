@@ -184,18 +184,6 @@ music.onended = function() {
     musicBtn.innerHTML = '<i class="fas fa-music"></i>';
 };
 
-window.onload = () => {
-    const starsWrap = document.getElementById('stars');
-    for(let i=0; i<50; i++) {
-        const s = document.createElement('div');
-        s.className = 'star';
-        s.style.left = Math.random() * 100 + '%';
-        s.style.top = Math.random() * 100 + '%';
-        s.style.animationDelay = Math.random() * 3 + 's';
-        starsWrap.appendChild(s);
-    }
-
-};
 
 
 
