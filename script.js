@@ -5,10 +5,10 @@ const duration = 7500;
 const typingSpeed = 70;
 
 const messages = [
-    { text: "Taqabbal Allahu Minna wa Minkum,\nShiyamana wa Shiyamakum.", sticker: "Dudu.gif" },
-    { text: "Mohon Maaf Lahir dan Batin.\nSemoga berkah  dan rahmat selalu menyertai kita.", sticker: "Dudu1.gif" },
-    { text: "Di hari yang fitri ini,\nSemoga Allah mengampuni kita semua.", sticker: "Dudu2.gif" },
-    { text: "Minal 'Aidin wal Faizin,\nSelamat Hari Raya Idul Fitri 1447 H.", sticker: "Dudu3.gif" }
+    { text: "Taqabbal Allahu Minna wa Minkum,\nShiyamana wa Shiyamakum.", sticker: "dudu.gif" },
+    { text: "Mohon Maaf Lahir dan Batin.\nSemoga berkah  dan rahmat selalu menyertai kita.", sticker: "dudu1.gif" },
+    { text: "Di hari yang fitri ini,\nSemoga Allah mengampuni kita semua.", sticker: "dudu2.gif" },
+    { text: "Minal 'Aidin wal Faizin,\nSelamat Hari Raya Idul Fitri 1447 H.", sticker: "dudu3.gif" }
 ];
 
 const nameInput = document.getElementById('nameInput');
@@ -199,4 +199,5 @@ window.onload = () => {
         s.style.animationDelay = Math.random() * 3 + 's';
         starsWrap.appendChild(s);
     }
+
 };
