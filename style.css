@@ -69,7 +69,7 @@ body {
 }
     /* PENTING: Agar GIF yang kotak terpotong mengikuti container yang bulat */
 .sticker-container.visible { opacity: 1; }
-.sticker-img { width: 100%; height: 100%; object-fit: contain; }
+.sticker-img { width: 100%; height: 100%; object-fit: contain;   border-radius: 60px;}
 
 /* --- KARTU UTAMA --- */
 .card {
@@ -248,4 +248,5 @@ body {
 
 
 @keyframes blink { 50% { opacity: 0; } }
+
 
