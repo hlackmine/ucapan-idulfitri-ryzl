@@ -5,7 +5,10 @@ const duration = 7500;
 const typingSpeed = 70;
 
 const messages = [
-    { text: "Taqabbal Allahu Minna wa Minkum,\nShiyamana wa Shiyamakum.", sticker: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGxtZzhmeXdzZGx6OTR6eWc1d2JocHhjaDQwbW54cWc3eXRxZTJubCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/kCqhMzivjgI4kFMuhF/giphy.gif" },
+    { 
+        text: "تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ صِيَامَنَا وَصِيَامَكُمْ\nمِنَ الْعَائِدِيْن وَالْفَائِزِيْن", 
+        sticker: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGxtZzhmeXdzZGx6OTR6eWc1d2JocHhjaDQwbW54cWc3eXRxZTJubCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/kCqhMzivjgI4kFMuhF/giphy.gif" 
+    },
     // Pastikan LINK DI BAWAH INI SATU BARIS (Jangan di-enter)
     { text: "Mohon Maaf Lahir dan Batin.\nSemoga berkah dan rahmat selalu menyertai kita.", sticker: "https://media.giphy.com/media/JwEVhaGCR6jTIqfSeI/giphy.gif" },
     { text: "Di hari yang fitri ini,\nSemoga Allah mengampuni kita semua.", sticker: "https://media.giphy.com/media/tAnKxPsuWqmuBuHD0Y/giphy.gif" },
@@ -183,6 +186,7 @@ music.onended = function() {
     isPlaying = false;
     musicBtn.innerHTML = '<i class="fas fa-music"></i>';
 };
+
 
 
 
