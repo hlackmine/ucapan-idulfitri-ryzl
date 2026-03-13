@@ -1,7 +1,7 @@
 let userName = "";
 let currentIndex = 0;
 let isFinished = false;
-const duration = 7500;
+const duration = 7800;
 const typingSpeed = 70;
 
 const messages = [
@@ -186,6 +186,7 @@ music.onended = function() {
     isPlaying = false;
     musicBtn.innerHTML = '<i class="fas fa-music"></i>';
 };
+
 
 
 
