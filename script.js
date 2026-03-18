@@ -11,8 +11,8 @@ const messages = [
     },
     // Pastikan LINK DI BAWAH INI SATU BARIS (Jangan di-enter)
     { text: "Mohon Maaf Lahir dan Batin.\nSemoga berkah dan rahmat selalu menyertai kita.", sticker: "https://media.giphy.com/media/JwEVhaGCR6jTIqfSeI/giphy.gif" },
-    { text: "Di hari yang fitri ini,\nSemoga Allah mengampuni kita semua Selamat Hari Raya Idul Fitri 1447 H.", sticker: "https://media.giphy.com/media/tAnKxPsuWqmuBuHD0Y/giphy.gif" },
-    { text: "Minal 'Aidin wal Faizin,\nSemoga setelah kita saling memaafkan, yang tertinggal bukan lagi keinginan untuk menghakimi,tapi niat untuk saling mengingatkan dengan lebih bijak", sticker: "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MXIzMWw0cXU0enZ4YmxqcGxtZmEzcGcyZ2QzZXEwd2g0ZDFxY3NreCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TqZfKTQnCrNCzhUobt/giphy.gif" }
+    { text: "Di hari yang fitri ini,\nSemoga Allah mengampuni kita semua,\nSelamat Hari Raya Idul Fitri 1447 H.", sticker: "https://media.giphy.com/media/tAnKxPsuWqmuBuHD0Y/giphy.gif" },
+    { text: "Minal 'Aidin wal Faizin,\nSemoga setelah kita saling memaafkan,\nyang tertinggal bukan lagi keinginan untuk menghakimi,\ntapi niat untuk saling mengingatkan dengan lebih bijak", sticker: "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MXIzMWw0cXU0enZ4YmxqcGxtZmEzcGcyZ2QzZXEwd2g0ZDFxY3NreCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TqZfKTQnCrNCzhUobt/giphy.gif" }
 ];
 
 const nameInput = document.getElementById('nameInput');
