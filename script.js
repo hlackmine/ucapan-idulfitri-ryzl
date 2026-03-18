@@ -106,7 +106,7 @@ function startApp() {
         bgMusic.play();
 
         document.getElementById('modalOverlay').style.display = 'none';
-        document.getElementById('senderName').textContent = `Hai: ${userName}`;
+        document.getElementById('senderName').textContent = `Hai: ${userName} ✨`;
         document.getElementById('senderName').style.display = 'block';
         updateCard();
 
