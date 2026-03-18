@@ -104,23 +104,15 @@ function goToMainUcapan() {
     document.getElementById('messageBox').style.display = "none";
     document.getElementById('mainUcapanCard').style.display = "flex";
     
-    // 1. Ambil elemen nama
-    const senderName = document.getElementById('senderName');
-    
-    // 2. Pastikan Nama Muncul dengan Bintang ✨
-    senderName.style.display = "block";
-    
-    // GUNAKAN BARIS INI (Memasukkan bintang langsung ke HTML)
-    senderName.innerHTML = `✨ Hai: ${userName} ✨`; 
-    
-    senderName.classList.add('visible');
+    // Pastikan Nama & Stiker Muncul
+    const sName = document.getElementById('senderName');
+    sName.style.display = "block";
+    sName.innerHTML = `✨ Hai: ${userName} ✨`; // Menambahkan bintang di sini
+    sName.classList.add('visible');
     
     document.getElementById('stickerContainer').style.display = "block";
 
     updateCard();
-
-
-    }
 }
 
 function updateCard() {
