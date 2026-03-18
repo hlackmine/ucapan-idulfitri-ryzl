@@ -99,16 +99,26 @@ function typeWriter(text) {
     }
     type();
 }
-function startApp() {
-    const input = document.getElementById('nameInput');
-    userName = input.value.trim();
-    if (userName) {
-        bgMusic.play();
+// Fungsi pindah ke ucapan utama
+function goToMainUcapan() {
+    document.getElementById('messageBox').style.display = "none";
+    document.getElementById('mainUcapanCard').style.display = "flex";
+    
+    // 1. Ambil elemen nama
+    const senderName = document.getElementById('senderName');
+    
+    // 2. Pastikan Nama Muncul dengan Bintang ✨
+    senderName.style.display = "block";
+    
+    // GUNAKAN BARIS INI (Memasukkan bintang langsung ke HTML)
+    senderName.innerHTML = `✨ Hai: ${userName} ✨`; 
+    
+    senderName.classList.add('visible');
+    
+    document.getElementById('stickerContainer').style.display = "block";
 
-        document.getElementById('modalOverlay').style.display = 'none';
-        senderName.innerHTML = `Hai: ${userName} ✨`;
-        document.getElementById('senderName').style.display = 'block';
-        updateCard();
+    updateCard();
+
 
     }
 }
