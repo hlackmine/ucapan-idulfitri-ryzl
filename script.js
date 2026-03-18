@@ -73,18 +73,19 @@ function chooseKetupat(pesan, sticker) {
     document.getElementById('messageBox').style.display = "flex";
 }
 // Fungsi pindah ke ucapan utama
-function goToMainUcapan() {
-    document.getElementById('messageBox').style.display = "none";
-    document.getElementById('mainUcapanCard').style.display = "flex";
-    
-    // Pastikan Nama & Stiker Muncul
-    document.getElementById('senderName').style.display = "block";
-    document.getElementById('senderName').textContent = "Hai: " + userName;
-    document.getElementById('senderName').classList.add('visible');
-    
-    document.getElementById('stickerContainer').style.display = "block";
-
-    updateCard();
+function startApp() {
+    const input = document.getElementById('nameInput');
+    userName = input.value.trim();
+    if (userName) {
+        bgMusic.play();
+        document.getElementById('modalOverlay').style.display = 'none';
+        
+        // Ganti baris ini
+        document.getElementById('senderName').innerHTML = `Hai: ${userName} ✨`;
+        
+        document.getElementById('senderName').style.display = 'block';
+        showSurpriseCard();
+    }
 }
 
 function typeWriter(text) {
