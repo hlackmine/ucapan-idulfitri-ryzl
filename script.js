@@ -107,7 +107,7 @@ function goToMainUcapan() {
     // Pastikan Nama & Stiker Muncul
     const sName = document.getElementById('senderName');
     sName.style.display = "block";
-    sName.innerHTML = `✨ Hai: ${userName} ✨`; // Menambahkan bintang di sini
+    sName.innerHTML = `Hai: ${userName} ✨`; // Menambahkan bintang di sini
     sName.classList.add('visible');
     
     document.getElementById('stickerContainer').style.display = "block";
